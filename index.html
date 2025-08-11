@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Baishakhi Biswas — Portfolio</title>
+  <meta name="description" content="Portfolio / CV website for Baishakhi Biswas" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Baishakhi Biswas</h1>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <h2>About</h2>
+      <p>
+        <!-- Insert the short web-friendly bio extracted from your CV here.
+             Example: "I am a graduate in X with experience in Y. I'm passionate about Z." -->
+        [Short bio — replace with the web-friendly text from your CV]
+      </p>
+      <ul class="meta-list">
+        <li><strong>Email:</strong> your.email@example.com</li>
+        <li><strong>Location:</strong> City, Country</li>
+        <li><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourprofile</a></li>
+      </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience">
+      <h2>Experience</h2>
+
+      <!-- Repeat .job blocks for each role from your CV -->
+      <article class="job">
+        <h3>Job Title — Company Name</h3>
+        <p class="job-meta">Location • Month Year — Month Year</p>
+        <ul>
+          <li>Responsibility / achievement 1 (concise, impact-oriented).</li>
+          <li>Responsibility / achievement 2 (quantified if possible).</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Intern / Role — Organization</h3>
+        <p class="job-meta">Location • Month Year — Month Year</p>
+        <ul>
+          <li>Short description of work done or accomplishment.</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section education">
+      <h2>Education</h2>
+      <article class="edu">
+        <h3>Degree — University Name</h3>
+        <p class="edu-meta">Field of Study • Month Year — Month Year</p>
+        <p>Any notable details (CGPA, honors, dissertation title, relevant coursework).</p>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills">
+      <h2>Skills</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h4>Technical</h4>
+          <p>Python · Java · C/C++ · SQL · HTML/CSS · JavaScript</p>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <p>Git · VS Code · Linux · Docker (replace with what applies)</p>
+        </div>
+        <div class="skill-group">
+          <h4>Other</h4>
+          <p>Teamwork · Communication · Problem solving</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>Project Title</h3>
+        <p class="project-meta">Tech stack • Year</p>
+        <p>Short description of the project and your role. Link: <a href="#">GitHub / Demo</a></p>
+      </article>
+
+      <!-- Add additional project blocks as needed -->
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <p>If you'd like to get in touch, email me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+
+      <form id="contact-form" class="contact-form" onsubmit="handleContactForm(event)">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn">Send (demo)</button>
+        <p class="form-note">This form is client-side only. I can help wire it to an email service later.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Baishakhi Biswas — Built from CV.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
