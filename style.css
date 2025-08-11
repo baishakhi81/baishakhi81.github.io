@@ -1,0 +1,84 @@
+/* style.css — simple responsive layout */
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --text:#121212;
+  --muted:#666;
+  --accent:#0a66c2;
+  --radius:12px;
+  --max-width:980px;
+  --container-pad:20px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:var(--container-pad);
+}
+
+/* Header */
+.site-header{
+  background:linear-gradient(90deg, #fff, #fbfdff);
+  border-bottom:1px solid #e9eef6;
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:14px 0;
+}
+.site-title{font-size:1.15rem; margin:0}
+.site-nav{margin-left:auto; display:flex; gap:14px; align-items:center}
+.site-nav a{color:var(--muted); text-decoration:none; font-weight:600}
+.site-nav a:hover{color:var(--accent)}
+
+.nav-toggle{display:none; background:none; border:0; font-size:1.25rem}
+
+/* Sections */
+.section{background:var(--card); padding:20px; margin:20px 0; border-radius:var(--radius); box-shadow:0 4px 12px rgba(18,18,18,0.03)}
+.section h2{margin-top:0}
+
+.job h3, .edu h3, .project h3{margin:0 0 6px 0}
+.job-meta, .edu-meta, .project-meta{color:var(--muted); font-size:0.95rem; margin-bottom:8px}
+
+.meta-list{list-style:none; padding:0; margin:10px 0 0 0; display:flex; gap:16px; flex-wrap:wrap}
+.meta-list li{color:var(--muted); font-size:0.95rem}
+
+/* Skills */
+.skill-groups{display:flex; gap:16px; flex-wrap:wrap}
+.skill-group{flex:1; min-width:160px}
+
+/* Contact form */
+.contact-form{display:grid; gap:10px; max-width:640px}
+.contact-form label{display:flex; flex-direction:column; gap:6px; font-weight:600; color:var(--muted)}
+.contact-form input, .contact-form textarea{
+  padding:10px; border:1px solid #e3e8f0; border-radius:8px; font-size:1rem;
+}
+.btn{background:var(--accent); color:#fff; border:0; padding:10px 16px; border-radius:10px; cursor:pointer; font-weight:700}
+.form-note{font-size:0.9rem; color:var(--muted)}
+
+/* Footer */
+.site-footer{padding:18px 0; text-align:center; color:var(--muted); font-size:0.95rem}
+
+/* Responsive */
+@media (max-width:700px){
+  .site-nav{display:none; position:absolute; right:20px; top:60px; background:var(--card); padding:10px; border-radius:10px; flex-direction:column; box-shadow:0 8px 24px rgba(10,10,10,0.08)}
+  .nav-toggle{display:block; margin-left:auto}
+  .header-inner{position:relative}
+  .skill-groups{flex-direction:column}
+}
