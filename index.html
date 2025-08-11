@@ -1,140 +1,509 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Baishakhi Biswas — Portfolio</title>
-  <meta name="description" content="Portfolio / CV website for Baishakhi Biswas" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baishakhi Biswas - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #667eea;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255, 234, 167, 0.3);
+        }
+
+        .experience-item h3 {
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: #636e72;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: scale(1.02);
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="site-title">Baishakhi Biswas</h1>
-      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <nav id="site-nav" class="site-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
     </div>
-  </header>
 
-  <main class="container">
-    <!-- ABOUT -->
-    <section id="about" class="section about">
-      <h2>About</h2>
-      <p>
-        <!-- Insert the short web-friendly bio extracted from your CV here.
-             Example: "I am a graduate in X with experience in Y. I'm passionate about Z." -->
-        [Short bio — replace with the web-friendly text from your CV]
-      </p>
-      <ul class="meta-list">
-        <li><strong>Email:</strong> your.email@example.com</li>
-        <li><strong>Location:</strong> City, Country</li>
-        <li><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourprofile</a></li>
-      </ul>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience">
-      <h2>Experience</h2>
-
-      <!-- Repeat .job blocks for each role from your CV -->
-      <article class="job">
-        <h3>Job Title — Company Name</h3>
-        <p class="job-meta">Location • Month Year — Month Year</p>
-        <ul>
-          <li>Responsibility / achievement 1 (concise, impact-oriented).</li>
-          <li>Responsibility / achievement 2 (quantified if possible).</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <h3>Intern / Role — Organization</h3>
-        <p class="job-meta">Location • Month Year — Month Year</p>
-        <ul>
-          <li>Short description of work done or accomplishment.</li>
-        </ul>
-      </article>
-
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section education">
-      <h2>Education</h2>
-      <article class="edu">
-        <h3>Degree — University Name</h3>
-        <p class="edu-meta">Field of Study • Month Year — Month Year</p>
-        <p>Any notable details (CGPA, honors, dissertation title, relevant coursework).</p>
-      </article>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section skills">
-      <h2>Skills</h2>
-      <div class="skill-groups">
-        <div class="skill-group">
-          <h4>Technical</h4>
-          <p>Python · Java · C/C++ · SQL · HTML/CSS · JavaScript</p>
-        </div>
-        <div class="skill-group">
-          <h4>Tools</h4>
-          <p>Git · VS Code · Linux · Docker (replace with what applies)</p>
-        </div>
-        <div class="skill-group">
-          <h4>Other</h4>
-          <p>Teamwork · Communication · Problem solving</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-      <h2>Projects</h2>
-
-      <article class="project">
-        <h3>Project Title</h3>
-        <p class="project-meta">Tech stack • Year</p>
-        <p>Short description of the project and your role. Link: <a href="#">GitHub / Demo</a></p>
-      </article>
-
-      <!-- Add additional project blocks as needed -->
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch, email me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
-
-      <form id="contact-form" class="contact-form" onsubmit="handleContactForm(event)">
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <button type="submit" class="btn">Send (demo)</button>
-        <p class="form-note">This form is client-side only. I can help wire it to an email service later.</p>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Baishakhi Biswas — Built from CV.</p>
-    </div>
-  </footer>
+        <div class="header">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23667eea'/%3E%3Ctext x='50' y='55' text-anchor='middle' fill='white' font-size='30' font-family='Arial'%3EBB%3C/text%3E%3C/svg%3E" alt="Profile" class="profile-img">
+            <h1>Baishakhi Biswas</h1>
+            <p>Agricultural Engineering Student & Digital Media Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:baishakhibiswas2856@gmail.com" class="contact-item">
+                    📧 baishakhibiswas2856@gmail.com
+                </a>
+                <a href="tel:01761951385" class="contact-item">
+                    📞 01761951385
+                </a>
+                <div class="contact-item">
+                    📍 Dhaka, Bangladesh
+                </div>
+            </div>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <div class="summary">
+                Confident leader with strong interpersonal and communication skills, proficient in fostering teamwork and collaboration. Highly adaptable with knack for problem-solving and decision-making abilities. Proven track record in driving projects to successful completion through strategic planning and resource management.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🌾 Smart Agriculture Platform</h3>
+                    <p>Developed a comprehensive digital platform for modern farming techniques, integrating IoT sensors and data analytics for crop monitoring.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Data Analytics</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>📱 Social Media Management Tool</h3>
+                    <p>Built an automated social media management system for content scheduling, engagement tracking, and analytics reporting.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Social APIs</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>📊 Agricultural Data Visualization</h3>
+                    <p>Created interactive dashboards for agricultural data analysis using modern visualization techniques and statistical modeling.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Data Science</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Programming</h3>
+                    <p>C, Python, MATLAB</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🏢 Office Suite</h3>
+                    <p>Microsoft Office, Word, Excel, PowerPoint</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🗣️ Languages</h3>
+                    <p>IELTS Proficiency (Band Score 7.0)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>👨‍💼 Leadership</h3>
+                    <p>Project Management, Team Leadership</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Media and Relations Manager</h3>
+                <div class="company">Bangladesh Agricultural University Career Club - Mymensingh, Bangladesh</div>
+                <p>• Formulated and applied strategic social media initiatives to enhance engagement</p>
+                <p>• Partnered with digital creators to streamline online content development</p>
+                <p>• Directed content creation, posting, and community interaction to build positive online image</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Social Media Manager</h3>
+                <div class="company">BAAH STORE LTD. - Dhaka, Bangladesh</div>
+                <p>• Managed daily content creation, posting, and community engagement to foster a positive online presence</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Science in Agricultural Engineering</h3>
+                <p><strong>Bangladesh Agricultural University - Mymensingh</strong></p>
+                <p>2022 - Current</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Higher Secondary School Certificate - Science</h3>
+                <p><strong>Joypurhat Girls' Cadet College</strong></p>
+                <p>🏆 Academic Achievement Award - Board Scholarship (General grade)</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Secondary School Certificate - Science</h3>
+                <p><strong>Joypurhat Girls' Cadet College - Talentpool Scholarship</strong></p>
+                <p>🏆 Academic Achievement Award - Board Scholarship (Talentpool)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add typing effect to the main title
+            const title = document.querySelector('.header h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
